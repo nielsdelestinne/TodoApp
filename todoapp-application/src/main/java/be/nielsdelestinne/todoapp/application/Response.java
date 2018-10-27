@@ -1,7 +1,7 @@
 package be.nielsdelestinne.todoapp.application;
 
-public interface Response<T, R> {
+public interface Response<R> {
 
-    R from(T domainObject);
+    R getValue();
 
 }

@@ -1,13 +1,15 @@
 package be.nielsdelestinne.todoapp.application.todos.get;
 
+import be.nielsdelestinne.todoapp.application.Response;
 import be.nielsdelestinne.todoapp.application.UseCase;
-import be.nielsdelestinne.todoapp.application.todos.TodoDto;
+import be.nielsdelestinne.todoapp.application.todos.TodosDto;
+import be.nielsdelestinne.todoapp.domain.todos.Todo;
 import be.nielsdelestinne.todoapp.domain.todos.TodoRepository;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
-public class GetAllTodosUseCase implements UseCase<GetAllTodosRequest, Iterable<TodoDto>> {
+public class GetAllTodosUseCase implements UseCase<GetAllTodosRequest, Response<TodosDto>> {
 
     private static final int MAX_ALLOWED_TODO_RESULTS = 25;
 
@@ -18,15 +20,15 @@ public class GetAllTodosUseCase implements UseCase<GetAllTodosRequest, Iterable<
     }
 
     @Override
-    public Iterable<TodoDto> handle(GetAllTodosRequest command) {
-        return stream(todoRepository.findAll().spliterator(), true)
-            .limit(determineValidLimit(command))
-            .map(todo -> new TodoDto().from(todo))
-            .collect(toList());
+    public TodosDto process(GetAllTodosRequest command) {
+        return new TodosDto()
+                .from(stream(todoRepository.findAll().spliterator(), true)
+                        .limit(determineValidLimit(command))
+                        .collect(toList()));
     }
 
     private int determineValidLimit(GetAllTodosRequest command) {
-        return isLimitWithinAllowedBoundaries(command) ? command.transform() :  MAX_ALLOWED_TODO_RESULTS;
+        return isLimitWithinAllowedBoundaries(command) ? command.transform() : MAX_ALLOWED_TODO_RESULTS;
     }
 
     private boolean isLimitWithinAllowedBoundaries(GetAllTodosRequest command) {

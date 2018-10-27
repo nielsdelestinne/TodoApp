@@ -3,13 +3,12 @@ package be.nielsdelestinne.todoapp.application.todos;
 import be.nielsdelestinne.todoapp.application.Response;
 import be.nielsdelestinne.todoapp.domain.todos.Todo;
 
-public class TodoDto implements Response<Todo, TodoDto> {
+public class TodoDto implements Response<TodoDto> {
 
     private String id;
     private String title;
     private String body;
 
-    @Override
     public TodoDto from(Todo domainObject) {
         this.id = domainObject.getId();
         this.title = domainObject.getTitle();
@@ -27,5 +26,10 @@ public class TodoDto implements Response<Todo, TodoDto> {
 
     public String getBody() {
         return body;
+    }
+
+    @Override
+    public TodoDto getValue() {
+        return this;
     }
 }

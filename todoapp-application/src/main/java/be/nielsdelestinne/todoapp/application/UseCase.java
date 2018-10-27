@@ -1,7 +1,7 @@
 package be.nielsdelestinne.todoapp.application;
 
-public interface UseCase<T extends Request, R>{
+public interface UseCase<T extends Request, R extends Response>{
 
-    R handle(T command);
+    R process(T command);
 
 }

@@ -1,4 +1,4 @@
-package be.nielsdelestinne.todoapp.application.api.todos;
+package be.nielsdelestinne.todoapp.infrastructure.api;
 
 public class TodoDto {
 

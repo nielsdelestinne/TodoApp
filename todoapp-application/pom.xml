@@ -12,4 +12,16 @@
 
     <artifactId>todoapp-application</artifactId>
 
+    <properties>
+        <spring-boot-starter-web>2.0.6.RELEASE</spring-boot-starter-web>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter-web}</version>
+        </dependency>
+    </dependencies>
+
 </project>

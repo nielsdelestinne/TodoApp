@@ -3,7 +3,7 @@ package be.nielsdelestinne.todoapp.application.todos;
 import be.nielsdelestinne.todoapp.application.Response;
 import be.nielsdelestinne.todoapp.domain.todos.Todo;
 
-public class TodoDto implements Response<TodoDto> {
+public class TodoDto implements Response {
 
     private String id;
     private String title;
@@ -28,8 +28,4 @@ public class TodoDto implements Response<TodoDto> {
         return body;
     }
 
-    @Override
-    public TodoDto getValue() {
-        return this;
-    }
 }

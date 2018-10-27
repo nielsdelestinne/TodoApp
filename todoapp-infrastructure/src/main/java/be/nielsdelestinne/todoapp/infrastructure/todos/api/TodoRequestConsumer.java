@@ -6,12 +6,11 @@ import be.nielsdelestinne.todoapp.application.todos.create.CreateTodoRequest;
 import be.nielsdelestinne.todoapp.application.todos.create.CreateTodoUseCase;
 import be.nielsdelestinne.todoapp.application.todos.get.GetAllTodosRequest;
 import be.nielsdelestinne.todoapp.application.todos.get.GetAllTodosUseCase;
-import be.nielsdelestinne.todoapp.infrastructure.RequestConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TodoRequestConsumer extends RequestConsumer {
+public class TodoRequestConsumer {
 
     private final CreateTodoUseCase createTodoUseCase;
     private final GetAllTodosUseCase getAllTodosUseCase;
@@ -23,10 +22,10 @@ public class TodoRequestConsumer extends RequestConsumer {
     }
 
     TodosDto consume(GetAllTodosRequest request) {
-        return doConsume(getAllTodosUseCase, request);
+        return getAllTodosUseCase.process(request);
     }
 
     TodoDto consume(CreateTodoRequest request) {
-        return doConsume(createTodoUseCase, request);
+        return createTodoUseCase.process(request);
     }
 }

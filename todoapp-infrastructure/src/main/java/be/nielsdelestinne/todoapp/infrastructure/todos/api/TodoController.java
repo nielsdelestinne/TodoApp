@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/todos")
 public class TodoController {
 
-    private TodoRequestConsumer todoRequestConsumer;
+    private final TodoRequestConsumer todoRequestConsumer;
 
     public TodoController(@Autowired TodoRequestConsumer todoRequestConsumer) {
         this.todoRequestConsumer = todoRequestConsumer;

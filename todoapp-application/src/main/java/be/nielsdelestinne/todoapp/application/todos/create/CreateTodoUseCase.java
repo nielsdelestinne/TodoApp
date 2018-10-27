@@ -6,7 +6,7 @@ import be.nielsdelestinne.todoapp.application.todos.TodoDto;
 import be.nielsdelestinne.todoapp.domain.todos.Todo;
 import be.nielsdelestinne.todoapp.domain.todos.TodoRepository;
 
-public class CreateTodoUseCase implements UseCase<CreateTodoRequest, Response<TodoDto>> {
+public class CreateTodoUseCase implements UseCase<CreateTodoRequest, Response> {
 
     private final TodoRepository todoRepository;
 

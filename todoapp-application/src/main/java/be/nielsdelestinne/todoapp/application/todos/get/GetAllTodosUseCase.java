@@ -3,13 +3,12 @@ package be.nielsdelestinne.todoapp.application.todos.get;
 import be.nielsdelestinne.todoapp.application.Response;
 import be.nielsdelestinne.todoapp.application.UseCase;
 import be.nielsdelestinne.todoapp.application.todos.TodosDto;
-import be.nielsdelestinne.todoapp.domain.todos.Todo;
 import be.nielsdelestinne.todoapp.domain.todos.TodoRepository;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
-public class GetAllTodosUseCase implements UseCase<GetAllTodosRequest, Response<TodosDto>> {
+public class GetAllTodosUseCase implements UseCase<GetAllTodosRequest, Response> {
 
     private static final int MAX_ALLOWED_TODO_RESULTS = 25;
 

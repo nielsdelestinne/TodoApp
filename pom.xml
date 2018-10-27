@@ -23,4 +23,20 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>be.nielsdelestinne.todoapp</groupId>
+                <artifactId>todoapp-domain</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.nielsdelestinne.todoapp</groupId>
+                <artifactId>todoapp-application</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
 </project>

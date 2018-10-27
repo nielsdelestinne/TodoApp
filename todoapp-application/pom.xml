@@ -12,4 +12,11 @@
 
     <artifactId>todoapp-application</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>be.nielsdelestinne.todoapp</groupId>
+            <artifactId>todoapp-domain</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

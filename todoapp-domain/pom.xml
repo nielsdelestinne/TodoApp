@@ -12,18 +12,4 @@
 
     <artifactId>todoapp-domain</artifactId>
 
-    <properties>
-        <persistence-javax>2.2</persistence-javax>
-    </properties>
-
-    <dependencies>
-        <!--An External dependency, not to a framework / library, but to a specification -->
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-            <version>${persistence-javax}</version>
-        </dependency>
-    </dependencies>
-
-
 </project>

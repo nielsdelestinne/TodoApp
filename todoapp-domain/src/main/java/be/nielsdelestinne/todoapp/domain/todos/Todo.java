@@ -1,13 +1,9 @@
 package be.nielsdelestinne.todoapp.domain.todos;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.UUID;
 
-@Entity
 public class Todo {
 
-    @Id
     private String id;
     private String title;
     private String body;
@@ -15,7 +11,12 @@ public class Todo {
     private Todo() {}
 
     public Todo(String title, String body) {
-        id = UUID.randomUUID().toString();
+        this(UUID.randomUUID().toString(), title, body);
+    }
+
+    /** Should only be called from inside AbstractEntity classes */
+    public Todo(String id, String title, String body) {
+        this.id = id;
         this.title = title;
         this.body = body;
     }
